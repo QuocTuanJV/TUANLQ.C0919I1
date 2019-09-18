@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<form >
+
+    <b><label for="one">Ammount</label>
+    <span style="display:inline-block; width: 200px;"></span>
+    <label for="two">From Currency</label>
+    <span style="display:inline-block; width: 200px;"></span>
+    <label for="three">To Currency</label>
+
+
+</form>
+<form method="get">
+
+    <input size="10" id="amount">
+    <span style="display:inline-block; width: 170px;"></span>
+    <select  width ="20" id="from">
+        <option>USD</option>
+        <option>VND</option>
+    </select>
+    <span style="display:inline-block; width: 250px;"></span>
+    <select width ="20" id="to">
+        <option>USD</option>
+        <option>VND</option>
+    </select>
+
+    <span style="display:inline-block; width: 90px;"></span>
+    <button type="button" onclick="convertMoney()">Convert</button><br/>
+    <label >Result: </label> <label id="result"></label>
+
+</form>
+<script>
+function convertMoney() {
+    let amount = document.getElementById("amount").valueOf().value;
+    let fromCurrency = document.getElementById("from").valueOf().value;
+    let toCurrency = document.getElementById("to").valueOf().value;
+    if(equalTwoValue(fromCurrency,"VND") && equalTwoValue(toCurrency,"USD"))
+    {
+        document.getElementById("result").innerHTML= convertVNDtoUSD(amount)
+    } else if(equalTwoValue(fromCurrency,"USD") && equalTwoValue(toCurrency,"VND")){
+        document.getElementById("result").innerHTML= convertUSDtoVND(amount)
+    }else if(equalTwoValue(fromCurrency,"USD") && equalTwoValue(toCurrency,"USD")){
+        document.getElementById("result").innerHTML= amount;
+    }
+    else if(equalTwoValue(fromCurrency,"VND") && equalTwoValue(toCurrency,"VND")){
+        document.getElementById("result").innerHTML= amount;
+    }
+
+
+}
+function convertVNDtoUSD(a) {
+    return a / 23000;
+}
+
+function convertUSDtoVND(a) {
+    return a * 23000;
+}
+
+function equalTwoValue(a, b){
+    if(a == b) return true;
+    else return false;
+}
+</script>
+</body>
+</html>
