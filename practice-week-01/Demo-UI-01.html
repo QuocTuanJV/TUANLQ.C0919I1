@@ -9,11 +9,22 @@
 <input id="amount">
 <button value="123", id="456" onclick="getValueFile()">Get</button>
 <script>
-function getValueFile() {
-    let amount = document.getElementById("456").valueOf().value;
 
-    alert("Nội dung vừa lấy: " + amount);
-}
+    let day = "Mon";
+    let message = "";
+
+    switch (day) {
+        case "Mon":
+            message = "Ngày đầu tuần";
+
+        case "Wed":
+            message = "Ngày giữa tuần";
+
+        case "Sat":
+        case "Sun":
+            message = "Ngày nghỉ";
+    }
+    document.write(message);
 </script>
 </body>
 </html>

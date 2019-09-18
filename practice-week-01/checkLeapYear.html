@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra năm nhập vào có phải năm nhuận hay không</title>
+</head>
+<body>
+<script>
+    let year = parseInt(prompt("Enter a year: "));
+    if(isLeapYear(year))
+    {
+        alert(year + " is Leap Year!")
+    }
+    else
+        alert(year + " is Not Leap Year!")
+
+    function isLeapYear(year) {
+        if(((year % 4 == 0) && (year % 100 != 0)) || ((year % 100 == 0) && (year % 400 == 0)))
+            return true;
+        else
+            return false;
+    }
+</script>
+
+</body>
+</html>
