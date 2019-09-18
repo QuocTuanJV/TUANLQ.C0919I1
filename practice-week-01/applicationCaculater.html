@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo ứng dụng máy tính</title>
+</head>
+<body>
+<input id="number01">
+<input id="number02">
+<hr style="height:0.1pt; visibility:hidden;" />
+
+<button id="1" onclick="caculater(this.id)">Additon(+)</button>
+<button id="2" onclick="caculater(this.id)">Subtraction(-)</button>
+<button id="3" onclick="caculater(this.id)">Multiplication(X)</button>
+<button id ="4" onclick="caculater(this.id)">Division(/)</button><br>
+<b>
+<label>Result </label><label id="result"></label>
+
+<script>
+    function caculater(clicked_id) {
+        let number01 = document.getElementById("number01").valueOf().value;
+        let number02 = document.getElementById("number02").valueOf().value;
+        if(clicked_id == "2"){
+            document.getElementById("result").innerHTML = 'Subtraction: ' + subtraction(number01,number02);
+        } else if (clicked_id == "3"){
+            document.getElementById("result").innerHTML = 'Multiplication: ' + multiplication(number01,number02);
+        }else if (clicked_id == "1"){
+            document.getElementById("result").innerHTML = 'Addition: ' + addition(number01,number02);
+        }
+        else if(clicked_id =="4")
+        {
+            document.getElementById("result").innerHTML = 'Division: ' + division(number01,number02);
+        }
+
+    }
+    function addition(a,b) {
+        return parseInt(a) + parseInt(b);
+    }
+    function subtraction(a, b) {
+        return a - b;
+    }
+    function multiplication(a, b) {
+        return a * b;
+    }
+    function division(a, b) {
+        return parseInt(a) / parseInt(b);
+    }
+
+</script>
+</body>
+</html>

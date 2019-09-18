@@ -15,7 +15,7 @@
 
 
 </form>
-<form method="get">
+<form>
 
     <input size="10" id="amount">
     <span style="display:inline-block; width: 170px;"></span>
@@ -41,14 +41,14 @@ function convertMoney() {
     let toCurrency = document.getElementById("to").valueOf().value;
     if(equalTwoValue(fromCurrency,"VND") && equalTwoValue(toCurrency,"USD"))
     {
-        document.getElementById("result").innerHTML= convertVNDtoUSD(amount)
+        document.getElementById("result").innerHTML= convertVNDtoUSD(amount) + ' USD';
     } else if(equalTwoValue(fromCurrency,"USD") && equalTwoValue(toCurrency,"VND")){
-        document.getElementById("result").innerHTML= convertUSDtoVND(amount)
+        document.getElementById("result").innerHTML= convertUSDtoVND(amount) + ' VND'
     }else if(equalTwoValue(fromCurrency,"USD") && equalTwoValue(toCurrency,"USD")){
-        document.getElementById("result").innerHTML= amount;
+        document.getElementById("result").innerHTML= amount + ' USD'
     }
     else if(equalTwoValue(fromCurrency,"VND") && equalTwoValue(toCurrency,"VND")){
-        document.getElementById("result").innerHTML= amount;
+        document.getElementById("result").innerHTML= amount + ' VND'
     }
 
 

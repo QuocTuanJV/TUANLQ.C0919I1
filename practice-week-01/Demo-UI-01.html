@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<label>Amount</label>
+<input id="amount">
+<button value="123", id="456" onclick="getValueFile()">Get</button>
+<script>
+function getValueFile() {
+    let amount = document.getElementById("456").valueOf().value;
+
+    alert("Nội dung vừa lấy: " + amount);
+}
+</script>
 </body>
 </html>
