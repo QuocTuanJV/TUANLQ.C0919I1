@@ -20,13 +20,15 @@
     <input size="10" id="amount">
     <span style="display:inline-block; width: 170px;"></span>
     <select  width ="20" id="from">
-        <option>USD</option>
-        <option>VND</option>
+        <option value="23000">USD</option>
+        <option value="28000">EUR</option>
+        <option value="1">VND</option>
     </select>
     <span style="display:inline-block; width: 250px;"></span>
     <select width ="20" id="to">
-        <option>USD</option>
-        <option>VND</option>
+        <option value="23000">USD</option>
+        <option value="28000">EUR</option>
+        <option value="1">VND</option>
     </select>
 
     <span style="display:inline-block; width: 90px;"></span>
@@ -39,32 +41,17 @@ function convertMoney() {
     let amount = document.getElementById("amount").valueOf().value;
     let fromCurrency = document.getElementById("from").valueOf().value;
     let toCurrency = document.getElementById("to").valueOf().value;
-    if(equalTwoValue(fromCurrency,"VND") && equalTwoValue(toCurrency,"USD"))
-    {
-        document.getElementById("result").innerHTML= convertVNDtoUSD(amount) + ' USD';
-    } else if(equalTwoValue(fromCurrency,"USD") && equalTwoValue(toCurrency,"VND")){
-        document.getElementById("result").innerHTML= convertUSDtoVND(amount) + ' VND'
-    }else if(equalTwoValue(fromCurrency,"USD") && equalTwoValue(toCurrency,"USD")){
-        document.getElementById("result").innerHTML= amount + ' USD'
-    }
-    else if(equalTwoValue(fromCurrency,"VND") && equalTwoValue(toCurrency,"VND")){
-        document.getElementById("result").innerHTML= amount + ' VND'
-    }
+
+        document.getElementById("result").innerHTML= convert(amount, fromCurrency, toCurrency);
+
 
 
 }
-function convertVNDtoUSD(a) {
-    return a / 23000;
+function convert(amount, fromCurrency, toCurreny) {
+    return amount * (fromCurrency / toCurreny);
 }
 
-function convertUSDtoVND(a) {
-    return a * 23000;
-}
 
-function equalTwoValue(a, b){
-    if(a == b) return true;
-    else return false;
-}
 </script>
 </body>
 </html>
