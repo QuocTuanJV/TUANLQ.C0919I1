@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Thực hành sự kiện bàn phím</title>
 </head>
-<body onload="doReady()">
+<body>
 <img id="nobita" src="../images/nobita.jpg" style="position:absolute;left:0; top:0;" height="320" width="240"/>
 <script>
     function downArrow() {
@@ -48,6 +48,7 @@
     function doReady() {
         window.addEventListener('keydown', moveSelection);
     }
+    window.onload = doReady();
 </script>
 
 </body>
