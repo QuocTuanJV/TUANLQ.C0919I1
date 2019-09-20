@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số BMI</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input id="month"></td>
+        <td>
+            <button onclick="caculateDayOfMonth()">Tính số ngày</button>
+        </td>
+    </tr>
+    <tr>
+        <td><div id="result-day"></div></td>
+    </tr>
+
+</table>
+<script>
+    function caculateDayOfMonth() {
+        let month = +document.getElementById("month").value;
+        let id = "result-day";
+        getMessage(id, month);
+    }
+
+    function getMessage(id, month) {
+        switch (month) {
+            case 1:
+                assign(id, "Tháng 1 có 31 ngày");
+                break;
+            case 2:
+                assign(id, "Tháng 2 có 27 hoặc 28 ngày");
+                break;
+            case 3:
+                assign(id, "Tháng 3 có 31 ngày");
+                break;
+            case 4:
+                assign(id, "Tháng 4 có 30 ngày");
+                break;
+            case 5:
+                assign(id, "Tháng 5 có 31 ngày");
+                break;
+            case 6:
+                assign(id, "Tháng 6 có 30 ngày");
+                break;
+            case 7:
+                assign(id, "Tháng 7 có 31 ngày");
+                break;
+            case 8:
+                assign(id, "Tháng 8 có 31 ngày");
+                break;
+            case 9:
+                assign(id, "Tháng 9 có 30 ngày");
+                break;
+            case 10:
+                assign(id, "Tháng 10 có 31 ngày");
+                break;
+            case 11:
+                assign(id, "Tháng 11 có 30 ngày");
+                break
+            case 12:
+                assign(id, "Tháng 12 có 31 ngày");
+                break;
+        }
+    }
+
+    function assign(id, message) {
+        document.getElementById(id).innerHTML = message;
+    }
+
+</script>
+
+</body>
+</html>
