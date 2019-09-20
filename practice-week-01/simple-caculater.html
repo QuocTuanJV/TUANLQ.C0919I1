@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo máy tính đơn giản</title>
+</head>
+<body>
+
+<table border="0">
+    <tr height="50" align="right">
+        <td width="300" colspan="4">
+
+            <div id="result" style="border:2px;height:75px;width:310px;color: blue;font-size:50px">
+            </div>
+        </td>
+
+    </tr>
+    <tr height="75" align="center">
+        <td width="75" value="1">
+            <button id="1" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">1</button>
+        </td>
+        <td>
+            <button id="2" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">2</button>
+        </td>
+        <td>
+            <button id="3" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">3</button>
+        </td>
+        <td>
+            <button id="add" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">+</button>
+        </td>
+    </tr>
+    <tr height="75" align="center">
+        <td width="75" value="1">
+            <button id="4" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">4</button>
+        </td>
+        <td>
+            <button id="5" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">5</button>
+        </td>
+        <td>
+            <button id="6" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">6</button>
+        </td>
+        <td>
+            <button id="sub" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">-</button>
+        </td>
+    </tr>
+    <tr height="75" align="center">
+        <td width="75" value="1">
+            <button id="7" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">7</button>
+        </td>
+        <td>
+            <button id="8" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">8</button>
+        </td>
+        <td>
+            <button id="9" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">9</button>
+        </td>
+        <td>
+            <button id="mul" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">x</button>
+        </td>
+    </tr>
+    <tr height="75" align="center">
+        <td width="75" value="1">
+            <button id="clear" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">C</button>
+        </td>
+        <td>
+            <button id=0 style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">0</button>
+        </td>
+        <td>
+            <button id="equal" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">=</button>
+        </td>
+        <td>
+            <button id="div" style="height:75px;width:75px;color: blue" onclick="showClickNumber(this.id)">/</button>
+        </td>
+    </tr>
+    <div style="display:none" id="operator"></div>
+    <div style="display:none" id="tem-result"></div>
+    <div style="display:none" id="tem-operator"></div>
+</table>
+<script>
+    function showClickNumber(clicked_id) {
+        switch (clicked_id) {
+            case "0":
+                setNumberRezo();
+                break;
+            case "1":
+                setNumberOne();
+                break;
+            case "2":
+                setNumberTwo();
+                break;
+            case "3":
+                setNumberThree();
+                break;
+            case "4":
+                setNumberFour();
+                break;
+            case "5":
+                setNumberFive();
+                break;
+            case "6":
+                setNumberSix();
+                break;
+            case "7":
+                setNumberSeven();
+                break;
+            case "8":
+                setNumberEight();
+                break;
+            case "9":
+                setNumberNine();
+                break;
+            case "add":
+                addNumber();
+                break;
+            case "sub":
+                subNumber();
+                break;
+            case "mul":
+                multilpNumber();
+                break;
+            case "div":
+                divNumber();
+                break;
+            case "clear":
+                clearNumber();
+                break;
+            case "equal":
+                resultEqual();
+                break;
+        }
+
+    }
+
+    function setNumberRezo() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "0"
+    }
+
+    function setNumberOne() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "1"
+    }
+
+    function setNumberTwo() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "2"
+    }
+
+    function setNumberThree() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "3"
+    }
+
+    function setNumberFour() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "4"
+    }
+
+    function setNumberFive() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "5"
+    }
+
+    function setNumberSix() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "6"
+    }
+
+    function setNumberSeven() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "7"
+    }
+
+    function setNumberEight() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "8"
+    }
+
+    function setNumberNine() {
+        let result = document.getElementById("result").textContent;
+        document.getElementById("result").innerHTML = result + "9"
+    }
+
+
+    function addNumber() {
+        let result = document.getElementById("result").textContent;
+        let number01 = parseInt(result);//result_01 hien thi bieu thuc,
+        document.getElementById("tem-operator").innerHTML = "add";
+        document.getElementById("tem-result").innerHTML = number01; // gan ket qua dau tien cho bien ta
+        document.getElementById("operator").innerHTML = result + " +";
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function resultAdd() {
+        let number02 = +document.getElementById("result").textContent;
+        let number01 = +document.getElementById("tem-result").textContent;
+        document.getElementById("result").innerHTML = number01 + number02;
+    }
+
+    function multilpNumber() {
+        let result = document.getElementById("result").textContent;
+        let number01 = parseInt(result);//result_01 hien thi bieu thuc,
+        document.getElementById("tem-operator").innerHTML = "mul";
+        document.getElementById("tem-result").innerHTML = number01 // gan ket qua dau tien cho bien ta
+        document.getElementById("operator").innerHTML = result + " x";
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function resultMultilp() {
+        let number02 = +document.getElementById("result").textContent;
+        let number01 = +document.getElementById("tem-result").textContent;
+        document.getElementById("result").innerHTML = number01 * number02;
+    }
+
+    function subNumber() {
+        let result = document.getElementById("result").textContent;
+        let number01 = parseInt(result);//result_01 hien thi bieu thuc,
+        document.getElementById("tem-operator").innerHTML = "sub";
+        document.getElementById("tem-result").innerHTML = number01; // gan ket qua dau tien cho bien ta
+        document.getElementById("operator").innerHTML = result + " -";
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function resultSub() {
+        let number02 = +document.getElementById("result").textContent;
+        let number01 = +document.getElementById("tem-result").textContent;
+        document.getElementById("result").innerHTML = number01 - number02;
+    }
+
+    function divNumber() {
+        let result = document.getElementById("result").textContent;
+        let number01 = parseInt(result);//result_01 hien thi bieu thuc,
+        document.getElementById("tem-operator").innerHTML = "div";
+        document.getElementById("tem-result").innerHTML = number01; // gan ket qua dau tien cho bien ta
+        document.getElementById("operator").innerHTML = result + " /";
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function resultDiv() {
+        let number02 = +document.getElementById("result").textContent;
+        let number01 = +document.getElementById("tem-result").textContent;
+        document.getElementById("result").innerHTML = number01 / number02;
+    }
+
+    function clearNumber() {
+        document.getElementById("result").innerHTML ="";
+        document.getElementById("tem-operator").innerHTML = "";
+        document.getElementById("tem-result").innerHTML = ""; // gan ket qua dau tien cho bien ta
+        document.getElementById("operator").innerHTML = "";
+    }
+
+    function resultEqual() {
+        if (document.getElementById("tem-operator").innerHTML == "add") {
+            resultAdd();
+        } else if (document.getElementById("tem-operator").innerHTML == "mul") {
+            resultMultilp();
+        } else if (document.getElementById("tem-operator").innerHTML == "sub") {
+            resultSub();
+        } else if (document.getElementById("tem-operator").innerHTML == "div") {
+            resultDiv();
+        }
+    }
+
+
+    function doReady() {
+        window.addEventListener('click', showClickNumber)
+    }
+
+    window.onload = doReady()
+
+</script>
+
+</body>
+</html>
