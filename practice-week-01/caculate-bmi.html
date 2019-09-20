@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số BMI</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Weight</td>
+        <td><input id="weight"></td>
+    </tr>
+    <tr>
+        <td>Heigh</td>
+        <td><input id="heigh"></td>
+    </tr>
+    <tr>
+        <td>BMI</td>
+        <td><input id="bmi"  disabled></td>
+        <td>Interpreation : </td>
+        <td><div id="interpretation"></div></td>
+    </tr>
+    <tr>
+        <td><button onclick="caculateBMI()">Caculate</button></td>
+    </tr>
+</table>
+<script>
+    function caculateBMI(){
+    let heigh = + document.getElementById("heigh").value;
+    let weight = + document.getElementById("weight").value;
+     document.getElementById("bmi").value = caculate(weight,heigh);
+     document.getElementById("interpretation").innerHTML = getMessage(caculate(weight,heigh));
+
+    }
+    function getMessage(a) {
+        if(a < 18.5){
+            return "Underweight";
+        } else if( (a >= 18.5) && (a < 25.0 )){
+            return "Normal"
+        } else if( (a >= 25.0) && (a < 30.0 )){
+            return "Overweight"
+        }else{
+            return "Obese"
+        }
+    }
+    function caculate(weight, height) {
+        return (weight / (height * height));
+    }
+</script>
+
+</body>
+</html>
