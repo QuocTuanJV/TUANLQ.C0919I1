@@ -127,60 +127,47 @@
                 resultEqual();
                 break;
         }
-
     }
-
     function setNumberRezo() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "0"
     }
-
     function setNumberOne() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "1"
     }
-
     function setNumberTwo() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "2"
     }
-
     function setNumberThree() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "3"
     }
-
     function setNumberFour() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "4"
     }
-
     function setNumberFive() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "5"
     }
-
     function setNumberSix() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "6"
     }
-
     function setNumberSeven() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "7"
     }
-
     function setNumberEight() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "8"
     }
-
     function setNumberNine() {
         let result = document.getElementById("result").textContent;
         document.getElementById("result").innerHTML = result + "9"
     }
-
-
     function addNumber() {
         let result = document.getElementById("result").textContent;
         let number01 = parseInt(result);//result_01 hien thi bieu thuc,
@@ -189,13 +176,11 @@
         document.getElementById("operator").innerHTML = result + " +";
         document.getElementById("result").innerHTML = "";
     }
-
     function resultAdd() {
         let number02 = +document.getElementById("result").textContent;
         let number01 = +document.getElementById("tem-result").textContent;
         document.getElementById("result").innerHTML = number01 + number02;
     }
-
     function multilpNumber() {
         let result = document.getElementById("result").textContent;
         let number01 = parseInt(result);//result_01 hien thi bieu thuc,
@@ -204,13 +189,11 @@
         document.getElementById("operator").innerHTML = result + " x";
         document.getElementById("result").innerHTML = "";
     }
-
     function resultMultilp() {
         let number02 = +document.getElementById("result").textContent;
         let number01 = +document.getElementById("tem-result").textContent;
         document.getElementById("result").innerHTML = number01 * number02;
     }
-
     function subNumber() {
         let result = document.getElementById("result").textContent;
         let number01 = parseInt(result);//result_01 hien thi bieu thuc,
@@ -219,13 +202,11 @@
         document.getElementById("operator").innerHTML = result + " -";
         document.getElementById("result").innerHTML = "";
     }
-
     function resultSub() {
         let number02 = +document.getElementById("result").textContent;
         let number01 = +document.getElementById("tem-result").textContent;
         document.getElementById("result").innerHTML = number01 - number02;
     }
-
     function divNumber() {
         let result = document.getElementById("result").textContent;
         let number01 = parseInt(result);//result_01 hien thi bieu thuc,
@@ -234,20 +215,17 @@
         document.getElementById("operator").innerHTML = result + " /";
         document.getElementById("result").innerHTML = "";
     }
-
     function resultDiv() {
         let number02 = +document.getElementById("result").textContent;
         let number01 = +document.getElementById("tem-result").textContent;
         document.getElementById("result").innerHTML = number01 / number02;
     }
-
     function clearNumber() {
         document.getElementById("result").innerHTML ="";
         document.getElementById("tem-operator").innerHTML = "";
         document.getElementById("tem-result").innerHTML = ""; // gan ket qua dau tien cho bien ta
         document.getElementById("operator").innerHTML = "";
     }
-
     function resultEqual() {
         if (document.getElementById("tem-operator").innerHTML == "add") {
             resultAdd();
@@ -259,14 +237,11 @@
             resultDiv();
         }
     }
-
-
     // function doReady() {
     //     window.addEventListener('click', showClickNumber)
     // }
     //
     // window.onload = doReady()
-
 </script>
 
 </body>
