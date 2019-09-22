@@ -5,21 +5,39 @@
     <title>Title</title>
 </head>
 <body>
+<table>
+    <tr>
+        <td><input id="element"></td>
+        <td><input type="button" value="add" onclick="addElement()"></td>
+        <td><input type="button" value="display" onclick="displayArray()"></td>
+    </tr>
+    <tr>
+        <td><hr width="175px" align="left"></td>
+    </tr>
+    <tr>
+        <td><div id="result"></div></td>
+    </tr>
 <script>
-    let i = 0;
-    let check= 0
-    while(true){
-        i = i + 1;
-        if(i % 2 == 0){
-            document.write(i + "<br>");
-            check = check + 1;
+    let array = new Array();
+
+    function addElement() {
+        array.push(document.getElementById("element").value);
+        document.getElementById("element").value ="";
+    }
+    function displayArray() {
+        let e ="";
+        for(i = 0; i< array.length; i ++){
+            e = e + "Element thứ " + (i + 1) + " là: " + array[i] + "<br>";
         }
-        if(check == 6) break;
+        document.getElementById("result").innerHTML = e;
     }
 
-    for(i = 0; i< 5; i++){
-        document.write("<b>"+i);
-    }
+
+
+
+
+
+
 </script>
 </body>
 </html>

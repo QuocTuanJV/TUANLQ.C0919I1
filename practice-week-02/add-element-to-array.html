@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm phần tử vào mảng</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input id="element"></td>
+        <td><input type="button" value="add" onclick="addElement()"></td>
+        <td><input type="button" value="display" onclick="displayArray()"></td>
+    </tr>
+    <tr>
+        <td><hr width="175px" align="left"></td>
+    </tr>
+    <tr>
+        <td><div id="result"></div></td>
+    </tr>
+    <script>
+        let array = new Array();
+
+        function addElement() {
+            array.push(document.getElementById("element").value);
+            document.getElementById("element").value ="";
+        }
+        function displayArray() {
+            let e ="";
+            for(i = 0; i< array.length; i ++){
+                e = e + "Element thứ " + (i + 1) + " là: " + array[i] + "<br>";
+            }
+            document.getElementById("result").innerHTML = e;
+        }
+
+    </script>
+
+</body>
+</html>
