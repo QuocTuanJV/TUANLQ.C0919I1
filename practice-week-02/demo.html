@@ -5,36 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-<table>
-    <tr>
-        <td><input id="element"></td>
-        <td><input type="button" value="add" onclick="addElement()"></td>
-        <td><input type="button" value="display" onclick="displayArray()"></td>
-    </tr>
-    <tr>
-        <td><hr width="175px" align="left"></td>
-    </tr>
-    <tr>
-        <td><div id="result"></div></td>
-    </tr>
+<div id="result"></div>
 <script>
-    let array = new Array();
+    // let value = prompt("Enter a number: ");
+    // let x = [-3, 5, 1, 3, 2, 10];
+    // for (let i = 0; i < x.length; i++) {
+    //     if (value == x[i]) {
+    //         alert("Value " + x[i] + "found at " + i);
+    //     }
+    // }
 
-    function addElement() {
-        array.push(document.getElementById("element").value);
-        document.getElementById("element").value ="";
+    let array = [1, 2, 3, 4, 5, 6];
+    let number = 7;
+    let co = "";
+    for ( i = 0; i < array.length; i++) {
+         if(array[i] == number){
+             co = co + "Số " + number + " nằm tại vị trí thứ " + (i + 1) + " trong mảng <br>";
+         }
     }
-    function displayArray() {
-        let e ="";
-        for(i = 0; i< array.length; i ++){
-            e = e + "Element thứ " + (i + 1) + " là: " + array[i] + "<br>";
-        }
-        document.getElementById("result").innerHTML = e;
+    if(co == ""){
+        document.getElementById("result").innerHTML = "Không tìm thấy"
     }
-
-
-
-
+    else
+        document.getElementById("result").innerHTML = co;
 
 
 
