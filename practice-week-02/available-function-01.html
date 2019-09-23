@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm có sẵn 01 - nối chuỗi trong mảng</title>
+</head>
+<body>
+<script>
+    let array = ["red", "green", "white", "black"];
+    let name="";
+    for(let i = 0; i < array.length; i++){
+        if(i == array.length - 1) {
+            name += array[i];
+        }else{
+            name += array[i] + ",";
+        }
+    }
+    document.write(name);
+</script>
+</body>
+</html>

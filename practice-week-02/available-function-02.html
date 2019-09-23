@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm có sẵn 02 - them - vào giữa hai số chẵn</title>
+</head>
+<body>
+<script>
+    let number = window.prompt("Nhập vào chuỗi số");
+    let str = number.toString();
+    let arr =  new Array();
+    for(let i = 0; i < str.length; i++){
+        if(isEvenNumber(str[i]) && isEvenNumber(str[i + 1])){
+            arr.push(str[i] + "-" );
+        }else {
+            arr.push(str[i]);
+        }
+
+    }
+    document.write(arr);
+    function isEvenNumber(a) {
+        if(a % 2 == 0) return true;
+        else return false;
+    }
+</script>
+</body>
+</html>
