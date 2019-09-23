@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo ứng dụng vui do you love me</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <h1><div>Do you love me?</div></h1>
+        </td>
+
+    </tr>
+    <tr>
+        <td><input type="button" id="yes-question" value="Yes" onclick="clickYes()"></td>
+        <td><input type="button" id="no-question" value="No" onmouseover="moveOutNo()"></td>
+    </tr>
+</table>
+<script>
+    function clickYes() {
+        alert("<3");
+    }
+
+
+
+    function moveOutNo() {
+        let noQuestion = document.getElementById("no-question");
+        let positionNo = Math.floor(Math.random()*4);
+        switch (positionNo) {
+            case 0:
+                noQuestion.style.left = parseInt(noQuestion.style.left) + 30 + 'px';
+                break;
+            case 1:
+                noQuestion.style.left = parseInt(noQuestion.style.left) - 30 + 'px';
+                break;
+            case 2:
+                noQuestion.style.top = parseInt(noQuestion.style.top) - 30 + 'px';
+                break;
+            case 3:
+                noQuestion.style.top = parseInt(noQuestion.style.top) + 30 + 'px';
+                break;
+
+        }
+
+    }
+    function  init() {
+        let noQuestion = document.getElementById("no-question");
+        noQuestion.style.position = 'relative';//relative
+        noQuestion.style.left = '0px';
+        noQuestion.style.top = '0px'
+    }
+    window.onload = init()
+</script>
+
+</body>
+</html>
