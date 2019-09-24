@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--style="position: absolute;left: 0px;top: 0px"-->
+<!--../images/funny-cat1_part1x1.jpg-->
+<img id="part-01" src="" onclick="changeImage(this.id)" style="position: absolute;left: 0px;top: 0px" alt="">
+<img id="part-02" src="" onclick="changeImage(this.id)" style="position: absolute;left: 0px;top: 200px" alt="">
+<div id = "result" style="position: absolute;left: 500px;top: 500px"></div>
+
+<!--<img id="part-02" src="" onclick="changeImage(this.id)" style="position: absolute;left: 0px;top: 300px" >-->
+
+<script>
+    let ArrayID = ["part-01", "part-02"];
+    let srcArray01 = ["../images/funny-cat1_part1x1.jpg", "../images/panda_swap_part1x1.jpg"];
+    let srcArray02 = ["../images/funny-cat1_part2x1.jpg", "../images/panda_swap_part2x1.jpg"];
+    // get gia tri
+    let partElement01 = document.getElementById(ArrayID[0]);
+    let partElement02 = document.getElementById(ArrayID[1]);
+    partElement01.src = srcArray01[randomNumber()];
+    partElement02.src = srcArray02[randomNumber()];
+    // khoi tao
+    if(partElement01.src.includes("funny-cat1")){
+        partElement01.alt ="cat";
+    } else if(partElement01.src.includes("panda_swap"))
+    {
+        partElement01.alt ="panda";
+    }
+
+    if(partElement02.src.includes("funny-cat1")){
+        partElement02.alt ="cat";
+    } else if(partElement02.src.includes("panda_swap"))
+    {
+        partElement02.alt ="panda";
+    }
+
+    if((partElement01.alt == partElement02.alt)&&((partElement01.alt != "")|| (partElement02.alt != "") )){
+        document.getElementById("result").innerHTML = "Done"
+    }
+    else
+        document.getElementById("result").innerHTML = "";
+
+    function changeImage(idImage) {
+        let ran = randomNumber();
+        let img = document.getElementById(idImage);
+        //part 1
+        if(idImage == ArrayID[0]) {
+            if (img.src.match(srcArray01[ran])) {
+                changeImage(idImage);
+            } else {
+                img.src = srcArray01[ran];
+                if(img.src.includes("funny-cat1")){
+                    img.alt = "cat";
+                } else if(img.src.includes("panda_swap")){
+                    img.alt = "panda"
+                }
+            }
+        } else if(idImage == ArrayID[1]) {
+            if (img.src.match(srcArray02[ran])) {
+                changeImage(idImage);
+            } else {
+                img.src = srcArray02[ran];
+                if(img.src.includes("funny-cat1")){
+                    img.alt = "cat";
+                } else if(img.src.includes("panda_swap")){
+                    img.alt = "panda"
+                }
+            }
+        }
+
+        // check match image
+        if((partElement01.alt == partElement02.alt)&&((partElement01.alt != "")|| (partElement02.alt != "") )){
+            document.getElementById("result").innerHTML = "Done"
+        }
+        else
+            document.getElementById("result").innerHTML = "";
+
+    }
+
+    function randomNumber() {
+        return Math.floor(Math.random() * 2);
+    }
+
+</script>
+</body>
+</html>

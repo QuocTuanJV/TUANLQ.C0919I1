@@ -5,26 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-<label>Amount</label>
-<input id="amount">
-<button value="123", id="456" onclick="getValueFile()">Get</button>
+<input id ="xo" type="button" value="." onclick="changeValue(this.id)">
 <script>
-
-    let day = "Mon";
-    let message = "";
-
-    switch (day) {
-        case "Mon":
-            message = "Ngày đầu tuần";
-
-        case "Wed":
-            message = "Ngày giữa tuần";
-
-        case "Sat":
-        case "Sun":
-            message = "Ngày nghỉ";
+    let sout ="";
+function changeValue(id_click) {
+    let valueXO = document.getElementById("xo");
+    // switch (valueXO) {
+    //     case ".":
+    //         valueXO.value = "x";
+    //         break;
+    //     case "x":
+    //         valueXO.value = "o";
+    //         break;
+    //     case "o":
+    //         valueXO.value = "x";
+    //         break;
+    // }
+    if(id_click =="xo") {
+        valueXO.value = "x";
     }
-    document.write(message);
+}
+
+function doReady() {
+    window.addEventListener('keydown', changeValue);
+}
+window.onload = doReady();
 </script>
 </body>
 </html>

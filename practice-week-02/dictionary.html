@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo từ điển đơn giản</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input id="word" type="text"></td>
+        <td><input type="button" value="Tìm kiếm" onclick="findWord()"></td>
+    </tr>
+    <tr>
+        <td><div id="result"></div></td>
+    </tr>
+
+</table>
+<script>
+    let englishWord = ["red","green","blue","yellow"];
+    let vietnamWord = ["đỏ", "xanh lá", "xanh dương", "màu vàng"];
+    function findWord() {
+        let searchWord = document.getElementById("word").value;
+        let check = 0;
+        let tem = 0;
+        let message = "";
+        for(let i = 0; i < englishWord.length; i++){
+            if(englishWord[i] == searchWord){
+                check = i;
+                tem += 1;
+            }
+        }
+        if(tem == 0){
+            message = "Không tìm thấy"
+        }else{
+            message = vietnamWord[check];
+        }
+        document.getElementById("result").innerHTML = message;
+    }
+
+</script>
+
+
+</body>
+</html>
