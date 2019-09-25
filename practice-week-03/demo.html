@@ -6,18 +6,14 @@
 </head>
 <body>
 <script>
-    function swap(a, b) {
-        var temp = a;
-        a = b;
-        b = temp;
+    function swap(a) {
+       let b = a;
+       return true;
     }
 
-    var a = 5;
-    var b = 10;
-    var tem = a;
-    a = b;
-    b = tem;
-    document.write("a = " + a + ", b = " + b);
+    let b = swap(3);
+    // document.write("a = " + a + ", b = " + b);
+    document.write(b);
 </script>
 
 </body>

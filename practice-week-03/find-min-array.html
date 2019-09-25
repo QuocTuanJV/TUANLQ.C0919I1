@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị nhỏ nhất của mảng sử dụng hàm</title>
+</head>
+<body>
+<script>
+    let arr1 = [1,2,3,5,9,8];
+    alert("Giá trị nhỏ nhất của mảng " + findMinNumberOfArray(arr1));
+    function findMinNumberOfArray(arr) {
+        let min = arr[0];
+        for (let i = 0; i< arr.length ; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    
+
+    
+</script>
+
+</body>
+</html>
