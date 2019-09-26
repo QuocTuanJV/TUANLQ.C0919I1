@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 02 - Bài 7</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let number01 = + prompt("Nhập vào số thứ nhất");
+    let number02 = + prompt("Nhập vào số thứ hai");
+    swapNumber(number01,number02);
+    alert("Số thứ nhất sau khi đổi " + swapNumber(number01,number02)[0]);
+    alert("số thứ hai sau khi đổi " + swapNumber(number01,number02)[1]);
+
+    function swapNumber(a, b) {
+        return [b,a];
+    }
+
+</script>
+</body>
+</html>

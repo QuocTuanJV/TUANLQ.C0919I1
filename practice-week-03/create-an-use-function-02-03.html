@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 02 - Bài 3</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let number = + prompt("Nhập vào số cần tính giai thừa")
+    alert("Giai thừa là "+ caculateFactorial(number));
+    function caculateFactorial(number) {
+       if (number ==1){
+           return 1;
+       } else
+           return number * caculateFactorial(number-1);
+    }
+
+</script>
+</body>
+</html>

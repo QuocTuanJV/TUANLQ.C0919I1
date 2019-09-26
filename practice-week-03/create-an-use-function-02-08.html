@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 02 - Bài 8</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let array01 = [1,2,3,4,5,6];
+    alert("Mảng ban đầu: " + array01);
+    alert("Mảng sau khi đảo ngược: " +reverseArray(array01));
+
+    function reverseArray(arr) {
+        let reserseArr = new Array();
+        for(let i = arr.length- 1; i>= 0; i--){
+            reserseArr.push(arr[i]);
+        }
+        return reserseArr;
+    }
+
+</script>
+</body>
+</html>

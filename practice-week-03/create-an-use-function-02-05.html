@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 02 - Bài 5</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let number01 = prompt("Nhập vào số thứ nhất")
+    let number02 = prompt("Nhập vào số thứ hai")
+    let number03 = prompt("Nhập vào số thứ ba")
+    alert("Số nhỏ nhất trong 3 số vừa nhập là " + findMinNumber(number01,number02,number03));
+
+    function findMinNumber(a, b, c) {
+        if (a < b && a < c)
+            return a;
+        else if (b < a && b < c)
+            return b;
+        else
+            return c;
+    }
+
+</script>
+</body>
+</html>

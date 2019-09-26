@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 02 - Bài 8</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let array01 = [1,2,3,2,5,6];
+    let str =  prompt("Nhập mảng ký tự");
+    let charactered = prompt("Nhập vào ký tự");
+
+
+    findNumberArray(str,charactered);
+
+    function findNumberArray(str, character) {
+        let arrayCheck = new Array();
+        for(let i = 0; i< str.length; i++){
+            if(str[i] == character){
+                arrayCheck.push(i);
+            }
+        }
+        if(arrayCheck.length > 0){
+            alert("Số lần xuất hiện ký tự [" + character + "] là " + arrayCheck.length);
+        }
+        else
+        {
+            alert("Không tìm thấy ký tự [" + character + "] trong chuỗi");
+            return -1;
+        }
+    }
+
+</script>
+</body>
+</html>
