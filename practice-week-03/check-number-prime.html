@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm kiểm tra số nguyên tố</title>
+</head>
+<body>
+<div id ="result"></div>
+<script>
+    let arrayNumber = [1,2,3,4,5,6, 7, 8, 9];
+    let sout ="";
+    let result = document.getElementById("result");
+    for(let i = 0; i < arrayNumber.length; i++){
+        if(isNumberPrime(arrayNumber[i])){
+            sout = sout +"Number "+ arrayNumber[i] + " is Number Prime </br>" ;
+        }
+    }
+    result.innerHTML = sout;
+
+    function isNumberPrime(number) {
+        let count = 0;
+        for(let i = 2; i <= number; i++)
+        {
+            if(number % i == 0){
+                count++
+            }else if(count == 2 && i < number){
+                break;
+            }
+        }
+        if(count == 1)
+            return true;
+        else
+            return false;
+
+    }
+</script>
+</body>
+</html>
