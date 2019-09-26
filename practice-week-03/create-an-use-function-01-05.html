@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 01 - Bài 4</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let character = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let star = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" ,"Leo"];
+
+    let enterName = prompt("Nhập tên ngôi sao");
+    findStar(enterName,character,star);
+
+    function findStar (enterName,character,star ) {
+        let check=0;
+        for(let i = 0; i < character.length; i++){
+            if(character[i]==enterName){
+                check++;
+            }
+        }
+        if(check > 0){
+            alert("Ngôi sao tìm thấy " + star[check]);
+        }
+        else{
+            alert("Không tìm thấy ngôi sao");
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 01 - Bài 3</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+  let number01 = + prompt("Nhập tham số thứ nhất");
+  let number02 = + prompt("Nhập tham số thứ hai");
+  checkNumber(number01, number02);
+
+function checkNumber(a, b) {
+    if(a > b){
+        alert("Tham số thứ nhất " + a + " đang lớn hơn tham số thứ 2 " + b);
+    } else {
+        alert("Tổng của hai số là: " + (a+b));
+    }
+}
+</script>
+
+</body>
+</html>

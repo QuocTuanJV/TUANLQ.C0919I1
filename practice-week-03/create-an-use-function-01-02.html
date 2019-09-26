@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và sử dụng hàm 01 - Bài 2</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+  let showNumber = document.getElementById("result");
+  let number = + prompt("Nhập vào số muốn tăng");
+  showNumber.innerHTML = "Giá trị số " + number + " sau khi tăng 1 là: " + increaseNumber(number);
+function increaseNumber(a) {
+    return a + 1;
+}
+</script>
+
+</body>
+</html>
