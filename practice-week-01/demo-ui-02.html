@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<input id = "01" typer="button" alt="cat">
-<input id = "02" typer="button" alt="cat">
+<input id="tuan" type="button" value="clickme" onclick="test(this.id)">
 <div id="result"></div>
+<body>
+
 <script>
-    let part1 = document.getElementById("01");
-    let part2 = document.getElementById("02");
-    let value1= part1.alt;
-    let value2= part2.alt;
-    if(value1 == value2){
-        document.getElementById("result").innerHTML ="TUAN";
+    function test(id_click) {
+        document.getElementById("result").innerHTML= id_click;
     }
+
 </script>
 </body>
 </html>

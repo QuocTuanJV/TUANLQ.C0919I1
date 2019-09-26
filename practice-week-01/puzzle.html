@@ -17,12 +17,13 @@
     let ArrayID = ["part-01", "part-02"];
     let srcArray01 = ["../images/funny-cat1_part1x1.jpg", "../images/panda_swap_part1x1.jpg"];
     let srcArray02 = ["../images/funny-cat1_part2x1.jpg", "../images/panda_swap_part2x1.jpg"];
-    // get gia tri
+    // lấy element ứng với các phần của bức ảnh
     let partElement01 = document.getElementById(ArrayID[0]);
     let partElement02 = document.getElementById(ArrayID[1]);
+    // tạo đường dẫn ngẫu nhiên tới ảnh
     partElement01.src = srcArray01[randomNumber()];
     partElement02.src = srcArray02[randomNumber()];
-    // khoi tao
+    // khởi tạo giá trị của thuộc tính alt dựa theo đường dẫn src
     if(partElement01.src.includes("funny-cat1")){
         partElement01.alt ="cat";
     } else if(partElement01.src.includes("panda_swap"))
@@ -37,7 +38,7 @@
         partElement02.alt ="panda";
     }
 
-    if((partElement01.alt == partElement02.alt)&&((partElement01.alt != "")|| (partElement02.alt != "") )){
+    if((partElement01.alt == partElement02.alt)){
         document.getElementById("result").innerHTML = "Done"
     }
     else
@@ -73,7 +74,7 @@
 
         // check match image
         if((partElement01.alt == partElement02.alt)&&((partElement01.alt != "")|| (partElement02.alt != "") )){
-            document.getElementById("result").innerHTML = "Done"
+            document.getElementById("result").innerHTML = "<h1>DONE</h1>";
         }
         else
             document.getElementById("result").innerHTML = "";

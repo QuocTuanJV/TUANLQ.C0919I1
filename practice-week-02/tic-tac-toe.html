@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo bàn cờ đơn giản</title>
+</head>
+<body>
+<div id="result"></div>
+<div id="result-end" style="position: absolute;left: 250px;top: 100px"></div>
+<script>
+    let b = document.getElementById("result");
+    let c = document.getElementById("result-end");
+    let continued = true;
+    let sout = "<table>";
+    let matrix;
+
+    initialGameCaro();
+
+    function changeOX(id_click) {
+        let postionID = document.getElementById(id_click);
+        let postionX = parseInt(id_click.slice(0, 1));
+        let postionY = parseInt(id_click.slice(1, 2));
+        sout = "<table>";
+        if (continued == true) {
+            //gán giá trị cho nut được click là x hoặc o
+            if (matrix[postionX][postionY] == ".") {
+                matrix[postionX][postionY] = "x";
+            } else if (matrix[postionX][postionY] == "x") {
+                matrix[postionX][postionY] = "o";
+            } else
+                matrix[postionX][postionY] = "x";
+
+
+            //Mục đích hiển thị mảng hai chiều thôi
+            for (let i = 0; i < matrix.length; i++) {
+                sout = sout + "<tr height=\"50\" >";
+                for (let j = 0; j < matrix[i].length; j++) {
+                    // sout = sout + "<td width= \"50\">" + matrix[i][j] + "</td>";
+                    sout = sout + "<td width=\"50\"><input type=\"button\" id=\"" + i + j + "\" value=\"" + matrix[i][j] + "\" onclick=\"changeOX(this.id)\"></td>";
+                }
+                sout = sout + "</tr>";
+            }
+            sout = sout + "</table>" + "<input type=\"button\" value=\"New Game\" style=\"width: 140px;height: 50px\" onclick=\"createNewGame()\">";
+            b.innerHTML = sout
+
+            checkWin(matrix, c);
+        }
+
+    }
+
+    function checkWin(arr, elementResult) {
+        let key = "";
+        for (let i = 0; i < arr.length; i++) {
+            if ((arr[i][0] == arr[i][1]) && (arr[i][0] == arr[i][2]) && (arr[i][0] != ".")) {
+                key = arr[i][0];
+
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if ((arr[0][i] == arr[1][i]) && (arr[0][i] == arr[2][i]) && (arr[0][i] != ".")) {
+                key = arr[0][i];
+            }
+        }
+
+        if (arr [0][0] == arr [1] [1] && arr [1][1] == arr [2] [2] && arr [1] [1] != '.') key = arr [1] [1];
+        if (arr [0][2] == arr [1] [1] && arr [1][1] == arr [2] [0] && arr [1] [1] != '.') key = arr [1] [1];
+        if (key == "x") {
+            elementResult.innerHTML = "Người chơi X WIN";
+            continued = false;
+        } else if (key == "o") {
+            elementResult.innerHTML = "Người chơi O WIN";
+            continued= false;
+        } else if (key == "") {
+            elementResult.innerHTML = "";
+            continued = true;
+        }
+    }
+    
+
+    function createNewGame() {
+        continued = true;
+        c.innerHTML="";
+        sout="";
+        sout="<table>";
+        //gán giá trị cho mảng hai chiều
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = ".";
+            }
+        }
+        
+        // tao file html để hiển thị mảng hai chiều => chỉ là hiển thị không liên quan đến gán giá trị OK
+        for (let i = 0; i < matrix.length; i++) {
+            sout = sout + "<tr height=\"50\" >";
+            for (let j = 0; j < matrix[i].length; j++) {
+                sout = sout + "<td width=\"50\"><input type=\"button\" id=\"" + i + j + "\" value=\"" + matrix[i][j] + "\" onclick=\"changeOX(this.id)\"></td>";
+            }
+            sout = sout + "</tr>";
+        }
+        sout = sout + "</table>" + "<input type=\"button\" value=\"New Game\" style=\"width: 140px;height: 50px\" onclick=\"createNewGame()\">";
+        b.innerHTML = sout;
+    }
+    
+    function initialGameCaro() {
+        //create two-dimention Array
+        matrix = new Array(3);
+        for (let i = 0; i < 3; i++) {
+            matrix[i] = new Array(3);
+        }
+        //gán giá trị cho mảng hai chiều
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = ".";
+            }
+        }
+
+        // tao file html để hiển thị mảng hai chiều => chỉ là hiển thị không liên quan đến gán giá trị OK
+        for (let i = 0; i < matrix.length; i++) {
+            sout = sout + "<tr height=\"50\" >";
+            for (let j = 0; j < matrix[i].length; j++) {
+                sout = sout + "<td width=\"50\"><input type=\"button\" id=\"" + i + j + "\" value=\"" + matrix[i][j] + "\" onclick=\"changeOX(this.id)\"></td>";
+            }
+            sout = sout + "</tr>";
+        }
+        sout = sout + "</table>" + "<input type=\"button\" value=\"New Game\" style=\"width: 140px;height: 50px\" onclick=\"createNewGame()\">";
+        b.innerHTML = sout;
+    }
+    
+
+
+</script>
+</body>
+</html>

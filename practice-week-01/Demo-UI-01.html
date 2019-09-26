@@ -10,26 +10,18 @@
     let sout ="";
 function changeValue(id_click) {
     let valueXO = document.getElementById("xo");
-    // switch (valueXO) {
-    //     case ".":
-    //         valueXO.value = "x";
-    //         break;
-    //     case "x":
-    //         valueXO.value = "o";
-    //         break;
-    //     case "o":
-    //         valueXO.value = "x";
-    //         break;
-    // }
-    if(id_click =="xo") {
+
+    if(id_click =="xo" && valueXO.value==".") {
+        valueXO.value = "x";
+    }else if(id_click =="xo" && valueXO.value =="x") {
+        valueXO.value = "o";
+    }else {
         valueXO.value = "x";
     }
+
 }
 
-function doReady() {
-    window.addEventListener('keydown', changeValue);
-}
-window.onload = doReady();
+
 </script>
 </body>
 </html>
