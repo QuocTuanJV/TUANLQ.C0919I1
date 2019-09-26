@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet và meter</title>
+</head>
+<body>
+
+<form>
+    <fieldset style="width: 300px;position: relative;">
+        <legend>Convert Feet => Meter</legend>
+        <table>
+            <tr>
+                <td><label>Feet</label></td>
+                <td></td>
+                <td><label>Meter</label></td>
+            </tr>
+            <tr>
+                <td><input id ="feet" type="number" oninput="convertFeetToMeter(this.value)"></td>
+                <td><label>=></label></td>
+                <td><input id ="meter" type="number" disabled></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+<form>
+<fieldset style="width: 300px;position: relative;">
+    <legend>Convert Meter => Feet</legend>
+    <table>
+        <tr>
+            <td><label>Meter</label></td>
+            <td></td>
+            <td><label>Feet</label></td>
+        </tr>
+        <tr>
+            <td><input id ="meter-01" type="number" oninput="convertMeterToFeet(this.value)"></td>
+            <td><label>=></label></td>
+            <td><input id ="feet-01" type="number" disabled></td>
+        </tr>
+    </table>
+</fieldset>
+</form>
+<script>
+
+  function convertFeetToMeter(feet) {
+      let resultMeter = parseFloat(feet) * 0.305;
+      document.getElementById("meter").value= resultMeter;
+  }
+  function convertMeterToFeet(meter) {
+      let resultFeet = parseFloat(meter) * 3.279;
+      document.getElementById("feet-01").value= resultFeet;
+  }
+</script>
+</body>
+</html>
