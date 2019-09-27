@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp Circle</title>
+</head>
+<body>
+<script>
+
+    let Circle = function (radius) {
+        this.radius = radius;
+
+        //phương thức get
+        this.getRadius = function () {
+            return this.radius;
+        }
+
+        this.getArea = function () {
+            return Math.PI * this.radius * this.radius;
+        }
+        //phương thức set
+        this.setRadius = function (radius) {
+            this.radius = radius;
+
+        }
+    };
+
+    let myCircle = new Circle(3);
+    // lay gia tri cac thuoc tinh
+    let radius = myCircle.getRadius();
+    let ariaCircle = myCircle.getArea();
+    alert("Hình tròn có bán kính: "+ radius + " có diện tích: " + ariaCircle);
+    //set lại bán kính hình tròn
+    myCircle.setRadius(10);
+    alert("Hình tròn có bán kính: "+ myCircle.getRadius() + " Có diện tích: " + myCircle.getArea());
+
+</script>
+</body>
+</html>
