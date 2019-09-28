@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    Temperature = function (temperature) {
+        this.temperature = temperature;
+        
+        this.convertFromCToF = function () {
+            return this.temperature * 1.8 + 32;
+        };
+
+        this.convertFromCToKenvin = function () {
+            return this.temperature + 273.15;
+        };
+    };
+    let myTem = new Temperature(25);
+    let result = document.getElementById("result");
+    result.innerHTML = `Khi nhiệt độ Celsius là 25 độ </br>=> độ F là ${myTem.convertFromCToF()}
+     và độ K là ${myTem.convertFromCToKenvin()} `;
+
+</script>
+
+</body>
+</html>
