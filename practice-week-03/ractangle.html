@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="my-canvas" width="500x" height="500px" style="border:1px solid #d3d3d3;"></canvas>
+<table>
+    <tr>
+        <td>Chiều dài:</td>
+        <td><input id="w" type="number"></td>
+    </tr>
+    <tr>
+        <td>Chiều rộng:</td>
+        <td><input id="h" type="number"></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="drawRec()" value="Vẽ hình chữ nhật"></td>
+        <td><input type="button" onclick="clearRec()" value="Xóa hình chữ nhật"></td>
+
+    </tr>
+</table>
+<script>
+    function Rectangle(x, y) {
+        const ctx = document.getElementById("my-canvas").getContext("2d");
+        this.x = x;
+        this.y = y;
+        //Tính diện tích
+        this.getAreaRectangle = function () {
+            return this.x * this.y;
+        };
+        //Tính chu vi
+        this.getPerimeterRectangle = function () {
+            return (this.a + this.b) * 2;
+        };
+        this.createRectanggle = function () {
+            // let ctx = document.getElementById("my-canvas").getContext("2d");
+            ctx.beginPath();
+            ctx.rect(100,100, this.x , this.y);
+            ctx.stroke();
+        };
+        this.clearRectangle = function () {
+           ctx.clearRect(0,0,document.getElementById("my-canvas").width, document.getElementById("my-canvas").height);
+        };
+
+    }
+
+    let x=0;
+    let y=0;
+    let myRec;
+
+
+    function drawRec() {
+        x = + document.getElementById("w").value;
+        y = + document.getElementById("h").value;
+        myRec = new Rectangle(x,y);
+        myRec.createRectanggle();
+    }
+    function clearRec() {
+        document.getElementById("w").value = "";
+        document.getElementById("h").value = "";
+        myRec.clearRectangle();
+
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
