@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Mobile() {
+        this.status = "off";//
+        this.battery = 100;
+        this.messageComposing="";//tin nhắn đang soạn
+        this.sent = new Array();//lưu tin nhắn đã gửi
+        this.inbox = new Array();//lưu tin nhắn đã nhận
+
+        this.isMobileOn = function () {// kiểm tra trạng thái điện thoại on hay off
+            if(this.status == "on"){
+                return true;
+            }
+            else
+                return false;
+        };
+        this.setOn = function () {// chức năng tắt điện thoại
+            this.status = "on";
+
+        };
+        this.setOff = function () {// Chức năng mở điện thoại
+            this.status = "off";
+        };
+        this.writeMessage = function (message) {
+            this.messageComposing = message;
+            this.battery--;
+            return this.messageComposing;
+        }
+        this.sendMessage = function (message, model) {
+            this.sent.push(message);//lưu trữ lại tin nhắn đã gửi
+            model.inbox.push(message);//lưu trữ tại hòm thư đến của điện thoại nhận
+            this.battery--;
+        };
+        this.viewMessage = function () {//xem tin nhắn tại hòm thư đến
+            alert("Tin nhắn tại hòm thư đến: " + this.inbox[0]);
+        };
+        this.getBatteryInfo = function () {
+            alert("Số pin hiện tại:" + this.battery);
+        }
+
+
+    }
+
+    let iphone = new Mobile();
+    let nokia = new Mobile();
+    nokia.setOn();
+    if(nokia.isMobileOn()) {
+        //soạn tin nhắn tại nokia
+        nokia.writeMessage("TUAN");
+        alert("Số pin sau khi soạn tin nhắn");
+        nokia.getBatteryInfo();
+        //gửi tin nhắn đến iphone
+        nokia.sendMessage(nokia.messageComposing, iphone);
+        alert("Số pin sau khi gửi tin nhắn đến iphone");
+        nokia.getBatteryInfo();
+
+        iphone.viewMessage();
+    }
+    else
+    {
+        alert("Yêu cầu bật điện thoại");
+    }
+    //hiên thị tin nhắn
+
+
+
+
+</script>
+</body>
+</html>
