@@ -5,14 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="my-canvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
-
+<label>Player 1</label><pre id="player1"></pre>
 <script>
-    let ctx = document.getElementById("my-canvas").getContext("2d");
-    ctx.beginPath();
-    ctx.rect(500,600,30, 60);
-    ctx.stroke();
-
+    let a = document.getElementById("player1");
+    a.innerHTML = "123";
 </script>
 
 </body>

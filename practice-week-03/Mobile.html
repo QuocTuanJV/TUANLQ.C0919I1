@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp điện thoại di động</title>
+</head>
+<body>
+<script>
+    function Mobile() {
+        let name;
+        let battery = 0;//int lượng pin hiện tại
+        let status = "on";// boolean trang thái điện thoại on hay of
+        let messageComposing;//String tin nhắn đang soạn thảo
+        let draft;//Mảng lưu trữ các tin nhắn đang soạn thảo
+        let inbox = []; //Mảng lưu trữ các tin nhắn đến
+        let sent = [];//Mảng lưu trữ các tin nhắn đã gửi
+        this.getName = function () {
+            return this.name;
+        }
+
+        this.isMobileOn = function () {// kiểm tra trạng thái điện thoại on hay off
+            if(status == "on"){
+               return true;
+            }
+            else
+                return false;
+        };
+        this.setOff = function () {// chức năng tắt điện thoại
+            this.status = "on";
+        };
+        this.setOn = function () {// Chức năng mở điện thoại
+            this.status = "off";
+        };
+        this.chargeBattery = function () {//chức năng sạc pin
+            for(let i = 0; i < 100; i++){
+                this.battery ++;
+            }
+        };
+
+        this.writeMessage = function (messageComposing) {// soạn tin nhắn trả về một chuỗi string
+            return messageComposing;//trả về tin nhắn đang soạn
+        };
+
+        this.receiveMessage = function (messageReceive) {//chức năng nhận tin nhắn từ điện thoại khác
+            this.inbox.push(messageReceive); //nhận tin nhắn từ điện thoại khác và lưu trữ vào hộp thư dến
+
+        };
+        this.sendMessage = function(messageSent,inboxSent){// chức năng gửi tin nhắn đến đt khác
+            this.sent.push(messageSent);//lưu tin nhắn đã gửi vào mảng send[]
+            inboxSent.push(messageSent);//lưu tin nhắn vào hộp thư đến của model được gửi
+            //tin nhắn được gửi đồng thời sẽ được lưu vào hộp thư đến của máy được gửi
+        };
+        this.viewMessageInbox = function () {// đọc tin nhắn trong hộp thư đến
+
+        };
+        this.viewMessageSent = function () {
+
+        };
+        //sau mỗi lần sử dụng một chức năng pin sẽ giảm một đơn vị
+        //Các chức năng không thể hoạt động nếu điện thoại chưa bật
+
+    }
+    //tạo mới 2 chiếc điện thoại
+    let iphone = new Mobile();
+    let nokia = new Mobile();
+    iphone.name ="iphone";
+    nokia.name ="nokia";
+    //soạn tin nhắn  trên điện thoại nokia
+    let messageNokia ="Gửi tin nhắn đến điện thoại iphone"
+    nokia.writeMessage(messageNokia);//trả về một tin nhắn sau khi soạn tin nhắn trên nokia
+    //thực hiện chức năng gửi tin nhắn
+    nokia.sendMessage(messageNokia,iphone.inbox);
+    alert(iphone.inbox);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

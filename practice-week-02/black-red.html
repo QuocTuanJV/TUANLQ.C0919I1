@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập black red</title>
+</head>
+<body>
+
+<script>
+    let packPlayer01 = [];
+    let packPlayer02 = [];
+    let cardNumber = 4;
+
+    function createPack() {
+        let pack = new Array();
+        for (let i = 0; i < cardNumber; i++){
+            pack.push(i+1);
+        }
+        return pack;
+    }
+
+    function shuffe(array) {
+
+        let i = array.length;
+        let j = 0;
+        let temp;
+
+        while (i--) {
+            j = Math.floor(Math.random() * (i+1));
+            // swap randomly chosen element with current element
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+
+
+    function distributePack(arr){
+        //gán bài cho người chơi 1;
+        for( let i = 0; i < arr.length; i++ ){
+            if(i % 2 == 0){
+                packPlayer01.push(arr[i]);
+            } else
+                packPlayer02.push(arr[i]);
+        }
+    }
+    function caculatePoin(arr){
+        let poin = 0;
+        for (let i =0 ; i < arr.length; i++){
+            poin = poin + arr[i];
+        }
+        return poin;
+    }
+    function checkWin(poin1, point2){
+        if(poin1 > point2){
+            alert("Người chơi 1 thắng");
+        } else if(poin1 < point2)
+            alert("Người chơi 2 thắng");
+        else
+            alert("Hai người chơi hòa nhau");
+    }
+
+    distributePack(shuffe(createPack()));//chia bài cho 2 người chơi
+    alert(`Bài người chơi 1 [${packPlayer01}]`);//check display pack
+    alert(`Bài người chơi 2 [${packPlayer02}]`);//check display pack
+    alert(`Số điểm người chơi 1 [${caculatePoin(packPlayer01)}]`);
+    alert(`Số điểm người chơi 2 [${caculatePoin(packPlayer02)}]`);
+    checkWin(caculatePoin(packPlayer01),caculatePoin(packPlayer02));
+</script>
+
+</body>
+</html>
