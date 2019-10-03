@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Di chuyển đối tượng sử dụng hướng đối tượng</title>
+</head>
+<body>
+<div id="ball"></div>
+<script>
+    function Player(top, left, image, speed, elementID) {
+        this.top = top;
+        this.left = left;
+        this.image = image;
+        this.speed = speed;
+        this.elementID = elementID;
+
+        this.moveLeft = function () {
+            this.left -= this.speed;
+        };
+        this.moveRight = function () {
+            this.left += this.speed;
+        };
+        this.moveUp = function () {
+            this.top -= this.speed;
+        };
+        this.moveDown = function () {
+            this.top  += this.speed;
+        }
+
+    }
+
+    function gameController(player){
+        this.drawPlayer = function () {
+            document.getElementById(player.elementID).innerHTML = this.getAttributesPlayer();
+        };
+        this.getAttributesPlayer = function () {
+            return `<img src="../images/${player.image}" style="top:${player.top}px;left:${player.left}px;position: absolute">`;
+        };
+        this.controllEventKeyBoard = function (evt) {
+            const arrowUp = 38;
+            const arrowDown = 40;
+            const arrowLeft = 37;
+            const arrowRight = 39;
+            let key = evt.which;
+            switch (key) {
+                case arrowDown:
+                    player.moveDown();
+                    break;
+                case arrowUp:
+                    player.moveUp();
+                    break;
+                case arrowRight:
+                    player.moveRight();
+                    break;
+                case arrowLeft:
+                    player.moveLeft();
+                    break;
+            }
+        }
+    }
+
+    function Start(player, controlPlayer){
+        this.initGame = function () {
+            controlPlayer.getAttributesPlayer();
+            controlPlayer.drawPlayer();
+        };
+        this.movePlayerByKeyBoard = function (evt) {
+            controlPlayer.controllEventKeyBoard(evt);
+            controlPlayer.getAttributesPlayer();
+            controlPlayer.drawPlayer();
+
+        }
+    }
+    let myPlayer = new Player(20, 500, "pikachu.png", 10, "ball");
+    let controlPlayer = new gameController(myPlayer);
+    let start = new Start(myPlayer,controlPlayer);
+    start.initGame();
+    window.addEventListener('keydown',start.movePlayerByKeyBoard);
+
+
+
+
+
+</script>
+</body>
+</html>
