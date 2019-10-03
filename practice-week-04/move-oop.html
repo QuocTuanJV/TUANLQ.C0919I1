@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Di chuyển đối tượng sử dụng hướng đối tượng</title>
+</head>
+<body>
+<div id="ball"></div>
+<script>
+    // let sout = `<img src="../images/pikachu.png" style="top: 200px;left:500px;position: absolute">`;
+    // document.getElementById("ball").innerHTML = sout;
+    function Player(top, left, image, speed, elementID) {
+        this.top = top;
+        this.left = left;
+        this.image = image;
+        this.speed = speed;
+        this.elementID = elementID;
+
+        this.drawPlayer1 = function () {
+            let sout = `<img src="../images/${this.image}" style="top:${this.top}px;left:${this.left}px;position: absolute">`;
+            document.getElementById(this.elementID).innerHTML = sout;
+        }
+
+    }
+
+
+    let myPlayer = new Player(20, 30, "pikachu.png", 10, "ball");
+    window.addEventListener('keydown',moveSelection);
+    myPlayer.logEvent();
+    function moveSelection (evt) {
+        const arrowUp = 38;
+        const arrowDown = 40;
+        const arrowLeft = 37;
+        const arrowRight = 39;
+        let key = evt.which;
+        switch (key) {
+            case arrowUp:
+                console.log(myPlayer.top);
+                break;
+            // case arrowDown:
+            //     // this.movePlayerDown();
+            //     myPlayer.top += this.speed;
+            //     break;
+            // case arrowLeft:
+            //     myPlayer.movePlayerLeft();
+            //     break;
+            // case arrowRight:
+            //     myPlayer.movePlayerRight();
+            //     break;
+        }
+        // this.drawPlayer();
+        // console.log(myPlayer.top);
+    }
+
+    {
+        console.log("Version 2");
+    }
+
+
+</script>
+</body>
+</html>
